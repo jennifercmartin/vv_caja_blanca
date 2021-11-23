@@ -29,7 +29,7 @@ class TestNumPalabras {
 	/** Comprueba que la variable fin no tiene un tamaño mayor que el tamaño de editor */
 	@Test
 	public void numPalabrasPath2(){
-	  miEditor.leerFichero("path2.txt");
+	  miEditor.leerFichero(".\\txtNumPalabras\\path2.txt");
 	  assertThrows(IllegalArgumentException.class, () -> {
 	    miEditor.numPalabras(1,2,"prueba");
 	  });
@@ -46,7 +46,7 @@ class TestNumPalabras {
 	/** problema ya que no entra a mirar la linea 1 al tener el while un menor estricto*/
 	@Test
 	public void numPalabrasPath4(){
-	  miEditor.leerFichero("path4.txt");
+	  miEditor.leerFichero(".\\txtNumPalabras\\path4.txt");
 	  assertEquals(0, miEditor.numPalabras(1,1,"linea"));
 	}
 	
@@ -54,7 +54,7 @@ class TestNumPalabras {
 	/** No es posible en una primera pasada del bucle */
 	@Test
 	public void numPalabrasPath5(){
-	  miEditor.leerFichero("path5.txt");
+	  miEditor.leerFichero(".\\txtNumPalabras\\path5.txt");
 	  assertEquals(0, miEditor.numPalabras(1,2,"prueba"));
 	  assertAll("Probamos que el editor tiene la primera línea de tamaño 0 pero inserta cadena vacia de tamanio 1", 
 				()-> assertEquals(2,miEditor.size()),
@@ -65,14 +65,14 @@ class TestNumPalabras {
 	/** Camino que no encuentra la palabra */
 	@Test
 	public void numPalabrasPath6(){
-	  miEditor.leerFichero("path6y7.txt");
+	  miEditor.leerFichero(".\\txtNumPalabras\\path6y7.txt");
 	  assertEquals(0, miEditor.numPalabras(1,2,"otro"));
 	}
 	
 	/** Camino que encuentra la palabra */
 	@Test
 	public void numPalabrasPath7(){
-	  miEditor.leerFichero("path6y7.txt");
+	  miEditor.leerFichero(".\\txtNumPalabras\\path6y7.txt");
 	  assertEquals(1, miEditor.numPalabras(1,2,"uno"));
 	}
 	
